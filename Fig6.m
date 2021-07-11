@@ -1,0 +1,22 @@
+% MIRAGE Effect
+u = linspace(-3, 3, 100);
+[x, y] = meshgrid(u, u);
+k = [0.22 0.1 0.08 0.05]';
+y0 = [-2 -1 0 1]';
+% c0 = [-0.002 0 0.002 0.004 ]';
+c0 = 1.5.*k + y0./3;
+n0 = 1;
+n = n0.*(1 + k(1).*y);
+f = @(j) (k/2).*j.^2 + c0.*j + y0;
+figure;
+box on;
+hold on;
+contourf(x, y, n, 200, 'LineColor', 'None');
+colorbar;
+plot(u, f(u), 'w', 'LineWidth', 2);
+hold off;
+l = 3;
+axis([-l l -l l]);
+xlabel('Distance along hot plane surface');
+ylabel('Distance above hot plane surface');
+title('Variable refractive index due to hot air');

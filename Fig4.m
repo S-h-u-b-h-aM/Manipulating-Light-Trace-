@@ -1,0 +1,25 @@
+% PARABOLIC light trace
+u = linspace(0, 3, 200);
+[x, y] = meshgrid(u, u);
+a = 1;
+n = sqrt(1 + 4 * a * y);
+mesh(x, y, n);
+box on;
+grid on;
+xlabel('x/a');
+ylabel('y/a');
+zlabel('\mu(x, y)');
+title('Variable refractive index');
+figure;
+hold on;
+contourf(x, y, n, 100, 'LineColor', 'None');
+colorbar;
+plot(u, a.*u.^2, 'w',  'LineWidth', 2);
+plot(0, 0, 'r*');
+axis([0 2 0 3]);
+hold off;
+xlabel('x/a');
+ylabel('y/a');
+title('Light ray trace in GRIN medium');
+legend('GRIN', 'Light Ray', 'Source');
+box on;

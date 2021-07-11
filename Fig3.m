@@ -1,0 +1,35 @@
+% HYPERBOLIC Trace
+u = linspace(-11, 11, 500);
+[x, y] = meshgrid(u, u);
+r_0 = 5;
+X = [];     Y = [];
+rsq = x.^2 + y.^2;
+n = RI(x, y);
+figure;
+mesh(x, y, n);
+xlabel('x/r_0');
+ylabel('y/r_0');
+zlabel('\mu');
+title('Variable Refractive Index');
+axis tight;
+box on;
+grid on;
+figure;
+t = linspace(0, 360, 100);
+X(:, 1) = 3*secd(t)' ; Y(:, 1) = 3*tand(t)';
+X(:, 2) = 3*tand(t)' ; Y(:, 2) = 3*secd(t)';
+hold on;
+box on;
+contourf(x, y, n, 50, 'LineColor', 'None');
+plot(X(:, 1), Y(:, 1), 'w', 'LineWidth', 1.4);
+plot(X(:, 2), Y(:, 2), 'w', 'LineWidth', 1.4);
+plot(u, u, 'k--', u, -u, 'k--', 'LineWidth', 2);
+plot([-10, -10, 10, 10], [-9.7 -10.3 9.7 10.3], 'r*');
+colorbar;
+xlim([-10, 10]);
+axis square;
+xlabel('x/r_0');
+ylabel('y/r_0');
+title('Path of light ray in GRIN');
+legend('GRIN', 'Light ray', 'Light ray', 'Asymptote 1',...
+    'Asymptote 2', 'Source');
