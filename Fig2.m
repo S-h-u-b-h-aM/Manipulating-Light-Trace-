@@ -1,5 +1,5 @@
 % Runaway but we runnin' in CIRCLE, runaway, runaway.... 
-addpath('Function Code');
+addpath('Function Codes');
 u = linspace(-5, 5, 500);
 [x, y] = meshgrid(u, u);
 r_0 = 5;
