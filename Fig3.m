@@ -1,4 +1,5 @@
 % HYPERBOLIC Trace
+addpath('Function Codes');
 u = linspace(-11, 11, 500);
 [x, y] = meshgrid(u, u);
 r_0 = 5;
